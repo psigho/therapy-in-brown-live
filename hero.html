@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Therapy is Brown — Where Healing Finds Its Roots</title>
+  <meta name="description" content="Culturally attuned therapy for the globalized South Asian. Connect with therapists who understand the roots you carry — no translation needed.">
+  <meta property="og:title" content="Therapy is Brown — Where Healing Finds Its Roots">
+  <meta property="og:description" content="Premium, culturally intelligent therapy. Your identity isn't a footnote — it's the whole story.">
+  <meta property="og:type" content="website">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+
+  <style>
+    /* ═══════════════════════════════════════════════════ */
+    /*  DESIGN TOKENS                                      */
+    /* ═══════════════════════════════════════════════════ */
+    :root {
+      --terracotta:   #A55A48;
+      --cream:        #F4E9DE;
+      --golden:       #D4A276;
+      --earth-deep:   #5D4037;
+      --warm-gray:    #8E8D8A;
+      --earth-warm:   #8B6A52;
+      --sand-light:   #FAF5EF;
+      --clay:         #C67B5C;
+      --sage:         #8B9E7E;
+      --text-dark:    #2C1E13;
+      --text-body:    #4A3728;
+      --text-muted:   #8C7B6B;
+      --overlay:      rgba(44, 30, 19, 0.55);
+      --overlay-deep: rgba(44, 30, 19, 0.72);
+
+      --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+      --font-body:    'DM Sans', 'Segoe UI', system-ui, sans-serif;
+      --font-accent:  'Cormorant Garamond', Georgia, serif;
+
+      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+      --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+    }
+
+    /* ═══════════════════════════════════════════════════ */
+    /*  RESET                                              */
+    /* ═══════════════════════════════════════════════════ */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--sand-light);
+      background: #1a0f0a;
+      overflow-x: hidden;
+    }
+
+    a { text-decoration: none; }
+
+    /* ═══════════════════════════════════════════════════ */
+    /*  NAVIGATION                                         */
+    /* ═══════════════════════════════════════════════════ */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 1.2rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.4s var(--ease-out-expo);
+    }
+
+    .nav.is-scrolled {
+      background: rgba(26, 15, 10, 0.85);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      padding: 0.8rem 2.5rem;
+      border-bottom: 1px solid rgba(212, 162, 118, 0.1);
+    }
+
+    .nav__logo {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+
+    .nav__logo-therapy {
+      font-family: var(--font-body);
+      font-size: 0.65rem;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(244, 233, 222, 0.5);
+    }
+
+    .nav__logo-brown {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--cream);
+      margin-top: -1px;
+    }
+
+    .nav__links {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+    }
+
+    .nav__link {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: rgba(244, 233, 222, 0.6);
+      transition: color 0.3s var(--ease-out-expo);
+      position: relative;
+    }
+
+    .nav__link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--golden);
+      transition: width 0.3s var(--ease-out-expo);
+    }
+
+    .nav__link:hover {
+      color: var(--cream);
+    }
+
+    .nav__link:hover::after {
+      width: 100%;
+    }
+
+    .nav__cta {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: rgba(244, 233, 222, 0.8);
+      background: transparent;
+      border: 1px solid rgba(212, 162, 118, 0.35);
+      padding: 0.6rem 1.5rem;
+      border-radius: 2px;
+      transition: all 0.3s var(--ease-out-expo);
+    }
+
+    .nav__cta:hover {
+      background: rgba(212, 162, 118, 0.1);
+      border-color: var(--golden);
+      color: var(--cream);
+      transform: translateY(-1px);
+    }
+
+    /* Mobile toggle */
+    .nav__mobile-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      z-index: 101;
+    }
+
+    .nav__mobile-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--cream);
+      transition: all 0.3s var(--ease-out-expo);
+    }
+
+    /* ═══════════════════════════════════════════════════ */
+    /*  HERO                                               */
+    /* ═══════════════════════════════════════════════════ */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      min-height: 700px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    /* Video background */
+    .hero__video-wrap {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .hero__video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+    }
+
+    /* Gradient overlays for readability */
+    .hero__overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        linear-gradient(
+          180deg,
+          rgba(26, 15, 10, 0.6) 0%,
+          rgba(26, 15, 10, 0.45) 20%,
+          rgba(26, 15, 10, 0.4) 40%,
+          rgba(26, 15, 10, 0.55) 60%,
+          rgba(26, 15, 10, 0.92) 78%,
+          rgba(26, 15, 10, 1) 90%,
+          rgba(26, 15, 10, 1) 100%
+        ),
+        radial-gradient(
+          ellipse at center,
+          rgba(26, 15, 10, 0.15) 0%,
+          rgba(26, 15, 10, 0.4) 100%
+        );
+    }
+
+    /* Grain texture overlay */
+    .hero__grain {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      opacity: 0.035;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 200px;
+    }
+
+    /* Content */
+    .hero__content {
+      position: relative;
+      z-index: 10;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 clamp(2rem, 5vw, 4rem);
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    /* Eyebrow */
+    .hero__eyebrow {
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--golden);
+      margin-bottom: 1.8rem;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: heroReveal 1s var(--ease-out-expo) 0.6s forwards;
+    }
+
+    /* Title */
+    .hero__title {
+      font-family: var(--font-display);
+      font-size: clamp(2.6rem, 4.5vw + 0.5rem, 4.5rem);
+      font-weight: 600;
+      line-height: 1.1;
+      color: #fff;
+      max-width: 780px;
+      margin-bottom: 1.8rem;
+      text-shadow:
+        0 2px 20px rgba(26, 15, 10, 0.6),
+        0 4px 40px rgba(26, 15, 10, 0.4),
+        0 0 80px rgba(26, 15, 10, 0.2);
+    }
+
+    .hero__title .line {
+      display: block;
+      opacity: 0;
+      transform: translateY(40px);
+    }
+
+    .hero__title .line:nth-child(1) {
+      animation: heroReveal 1s var(--ease-out-expo) 0.8s forwards;
+    }
+
+    .hero__title .line:nth-child(2) {
+      animation: heroReveal 1s var(--ease-out-expo) 1s forwards;
+    }
+
+    .hero__title .line:nth-child(3) {
+      animation: heroReveal 1s var(--ease-out-expo) 1.2s forwards;
+    }
+
+    .hero__title em {
+      font-family: var(--font-accent);
+      font-style: italic;
+      font-size: 1.05em;
+      color: var(--golden);
+    }
+
+    /* Subtitle */
+    .hero__subtitle {
+      font-family: var(--font-body);
+      font-size: clamp(1rem, 0.9rem + 0.4vw, 1.15rem);
+      font-weight: 400;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.9);
+      max-width: 560px;
+      margin-bottom: 2.5rem;
+      text-shadow:
+        0 1px 12px rgba(26, 15, 10, 0.5),
+        0 2px 24px rgba(26, 15, 10, 0.3);
+      opacity: 0;
+      transform: translateY(25px);
+      animation: heroReveal 1s var(--ease-out-expo) 1.4s forwards;
+    }
+
+    /* Actions */
+    .hero__actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .hero__btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-family: var(--font-body);
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+      transition: all 0.35s var(--ease-out-expo);
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .hero__btn--primary {
+      font-size: 0.95rem;
+      padding: 1rem 2.5rem;
+      background: var(--terracotta);
+      color: var(--cream);
+      border-radius: 2px;
+      letter-spacing: 0.03em;
+      animation: heroReveal 0.8s var(--ease-out-expo) 1.7s forwards;
+    }
+
+    .hero__btn--primary:hover {
+      background: var(--clay);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(165, 90, 72, 0.3);
+    }
+
+    .hero__btn--primary svg {
+      transition: transform 0.3s var(--ease-out-expo);
+    }
+
+    .hero__btn--primary:hover svg {
+      transform: translateX(4px);
+    }
+
+    .hero__btn--ghost {
+      font-size: 0.9rem;
+      padding: 0.95rem 1.8rem;
+      background: transparent;
+      color: rgba(244, 233, 222, 0.75);
+      border: 1px solid rgba(212, 162, 118, 0.25);
+      border-radius: 2px;
+      animation: heroReveal 0.8s var(--ease-out-expo) 1.9s forwards;
+    }
+
+    .hero__btn--ghost:hover {
+      border-color: var(--golden);
+      color: var(--cream);
+      background: rgba(212, 162, 118, 0.08);
+    }
+
+    /* Scroll indicator */
+    .hero__scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      opacity: 0;
+      animation: heroReveal 0.8s var(--ease-out-expo) 2.4s forwards;
+    }
+
+    .hero__scroll-text {
+      font-family: var(--font-body);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(244, 233, 222, 0.55);
+      text-shadow: 0 1px 6px rgba(26, 15, 10, 0.5);
+    }
+
+    .hero__scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(180deg, rgba(212, 162, 118, 0.4), transparent);
+      animation: scrollPulse 2s var(--ease-in-out) infinite;
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.3; transform: scaleY(0.6); transform-origin: top; }
+      50% { opacity: 1; transform: scaleY(1); transform-origin: top; }
+    }
+
+    /* ═══════════════════════════════════════════════════ */
+    /*  ANIMATED ROOTS (SVG)                               */
+    /* ═══════════════════════════════════════════════════ */
+    .hero__roots-svg {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 280px;
+      z-index: 5;
+      pointer-events: none;
+    }
+
+    .root-line {
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* Root 1 — Main flowing root (left to center) */
+    .root-line--1 {
+      stroke: var(--golden);
+      stroke-width: 2.5;
+      opacity: 0.35;
+      stroke-dasharray: 900;
+      stroke-dashoffset: 900;
+      animation: drawRoot 3.5s var(--ease-out-expo) 1.8s forwards;
+    }
+
+    /* Root 2 — Secondary root (right side) */
+    .root-line--2 {
+      stroke: var(--terracotta);
+      stroke-width: 2;
+      opacity: 0.25;
+      stroke-dasharray: 700;
+      stroke-dashoffset: 700;
+      animation: drawRoot 3s var(--ease-out-expo) 2.3s forwards;
+    }
+
+    /* Root 3 — Thin wispy root */
+    .root-line--3 {
+      stroke: var(--clay);
+      stroke-width: 1.5;
+      opacity: 0.18;
+      stroke-dasharray: 600;
+      stroke-dashoffset: 600;
+      animation: drawRoot 2.8s var(--ease-out-expo) 2.8s forwards;
+    }
+
+    /* Root 4 — Deep grounding root */
+    .root-line--4 {
+      stroke: var(--earth-warm);
+      stroke-width: 1.8;
+      opacity: 0.2;
+      stroke-dasharray: 500;
+      stroke-dashoffset: 500;
+      animation: drawRoot 2.5s var(--ease-out-expo) 3.2s forwards;
+    }
+
+    /* Subtle continuous breathing animation on roots */
+    @keyframes drawRoot {
+      to { stroke-dashoffset: 0; }
+    }
+
+    @keyframes rootBreathe {
+      0%, 100% { opacity: var(--base-opacity); transform: translateY(0); }
+      50% { opacity: calc(var(--base-opacity) + 0.08); transform: translateY(-2px); }
+    }
+
+    .root-line--1.drawn {
+      --base-opacity: 0.35;
+      animation: rootBreathe 6s var(--ease-in-out) infinite;
+    }
+
+    .root-line--2.drawn {
+      --base-opacity: 0.25;
+      animation: rootBreathe 7s var(--ease-in-out) 0.5s infinite;
+    }
+
+    /* Tiny root nodes / growth points */
+    .root-node {
+      fill: var(--golden);
+      opacity: 0;
+      animation: nodeAppear 0.6s var(--ease-out-expo) forwards;
+    }
+
+    .root-node:nth-child(1) { animation-delay: 3.5s; }
+    .root-node:nth-child(2) { animation-delay: 3.8s; }
+    .root-node:nth-child(3) { animation-delay: 4.1s; }
+    .root-node:nth-child(4) { animation-delay: 4.4s; }
+    .root-node:nth-child(5) { animation-delay: 4.7s; }
+
+    @keyframes nodeAppear {
+      0% { opacity: 0; r: 0; }
+      100% { opacity: 0.4; r: 3; }
+    }
+
+    /* ═══════════════════════════════════════════════════ */
+    /*  ANIMATIONS                                         */
+    /* ═══════════════════════════════════════════════════ */
+    @keyframes heroReveal {
+      0% {
+        opacity: 0;
+        transform: translateY(var(--reveal-distance, 20px));
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ═══════════════════════════════════════════════════ */
+    /*  BELOW-FOLD TEASER                                  */
+    /* ═══════════════════════════════════════════════════ */
+    .teaser {
+      position: relative;
+      padding: clamp(4rem, 8vw, 8rem) clamp(2rem, 5vw, 4rem);
+      background: var(--sand-light);
+      text-align: center;
+    }
+
+    .teaser__inner {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .teaser__label {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 1.5rem;
+    }
+
+    .teaser__heading {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 3vw + 0.5rem, 3.2rem);
+      font-weight: 600;
+      color: var(--earth-deep);
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+    }
+
+    .teaser__heading em {
+      font-family: var(--font-accent);
+      font-style: italic;
+      color: var(--terracotta);
+      font-size: 1em;
+    }
+
+    .teaser__body {
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--text-body);
+      margin-bottom: 2.5rem;
+    }
+
+    .teaser__cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 500;
+      padding: 1rem 2.2rem;
+      background: var(--terracotta);
+      color: var(--sand-light);
+      border-radius: 4px;
+      transition: all 0.35s var(--ease-out-expo);
+    }
+
+    .teaser__cta:hover {
+      background: var(--earth-deep);
+      color: var(--sand-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(93, 64, 55, 0.15);
+    }
+
+    .teaser__cta svg {
+      transition: transform 0.3s var(--ease-out-expo);
+    }
+
+    .teaser__cta:hover svg {
+      transform: translateX(4px);
+    }
+
+    /* Decorative roots at section boundary */
+    .teaser__roots {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      transform: translateY(-100%);
+    }
+
+    /* Observable animation trigger */
+    .teaser__inner > * {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo);
+    }
+
+    .teaser__inner.is-visible > * {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .teaser__inner.is-visible > :nth-child(1) { transition-delay: 0.1s; }
+    .teaser__inner.is-visible > :nth-child(2) { transition-delay: 0.25s; }
+    .teaser__inner.is-visible > :nth-child(3) { transition-delay: 0.4s; }
+    .teaser__inner.is-visible > :nth-child(4) { transition-delay: 0.55s; }
+
+    /* ═══════════════════════════════════════════════════ */
+    /*  RESPONSIVE                                         */
+    /* ═══════════════════════════════════════════════════ */
+    @media (max-width: 768px) {
+      .nav__links {
+        display: none;
+      }
+
+      .nav__mobile-toggle {
+        display: flex;
+      }
+
+      .hero__content {
+        padding: 0 1.5rem;
+        align-items: center;
+        text-align: center;
+      }
+
+      .hero__title {
+        max-width: 100%;
+      }
+
+      .hero__subtitle {
+        max-width: 100%;
+      }
+
+      .hero__actions {
+        justify-content: center;
+      }
+
+      .hero__eyebrow::before {
+        display: none;
+      }
+
+      .hero__roots-svg {
+        height: 160px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero__actions {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .hero__btn--primary,
+      .hero__btn--ghost {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- NAVIGATION                                   -->
+  <!-- ═══════════════════════════════════════════ -->
+  <nav class="nav" id="nav">
+    <a href="#" class="nav__logo">
+      <span class="nav__logo-therapy">therapy is</span>
+      <span class="nav__logo-brown">brown</span>
+    </a>
+    <div class="nav__links">
+      <a href="#network" class="nav__link">The Network</a>
+      <a href="#focus" class="nav__link">Clinical Focus</a>
+      <a href="#therapists" class="nav__link">Our Therapists</a>
+      <a href="https://www.therapyisbrown.com/therapist/free-consultation" class="nav__cta" target="_blank" rel="noopener">Sign In</a>
+    </div>
+    <button class="nav__mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- HERO — Full-screen Video                     -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section class="hero" id="hero">
+
+    <!-- Video Background -->
+    <div class="hero__video-wrap">
+      <video
+        class="hero__video"
+        autoplay
+        muted
+        playsinline
+        preload="auto"
+        poster="images/jasmyn-rana.jpg"
+      >
+        <source src="TIBHero.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <!-- Overlays -->
+    <div class="hero__overlay"></div>
+    <div class="hero__grain"></div>
+
+    <!-- Content -->
+    <div class="hero__content">
+      <p class="hero__eyebrow">Private Diaspora Concierge</p>
+
+      <h1 class="hero__title">
+        <span class="line">Don't spend half</span>
+        <span class="line">your session <em>explaining</em></span>
+        <span class="line">your culture.</span>
+      </h1>
+
+      <p class="hero__subtitle">
+        The premium mental wellness network curated exclusively for the South Asian diaspora. We don't just match you. We <em>curate</em> you.
+      </p>
+
+      <div class="hero__actions">
+        <a href="https://www.therapyisbrown.com/therapist/free-consultation" class="hero__btn hero__btn--primary" target="_blank" rel="noopener">
+          Apply for Access
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#philosophy" class="hero__btn hero__btn--ghost">
+          The Network
+        </a>
+      </div>
+    </div>
+
+    <!-- Animated SVG Roots -->
+    <svg class="hero__roots-svg" viewBox="0 0 1440 280" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="none">
+      <!-- Root 1: Main flowing root — organic, asymmetric curves -->
+      <path class="root-line root-line--1" d="
+        M-20,180
+        C80,170 140,140 220,155
+        S360,190 440,175
+        S560,130 660,145
+        S780,185 880,165
+        S1020,125 1120,150
+        S1260,190 1360,170
+        L1460,160
+      "/>
+
+      <!-- Root 2: Secondary root — different rhythm -->
+      <path class="root-line root-line--2" d="
+        M1460,220
+        C1360,210 1280,240 1180,225
+        S1040,195 940,215
+        S800,250 700,230
+        S560,200 460,220
+        S320,255 220,235
+        S80,210 -20,225
+      "/>
+
+      <!-- Root 3: Thin wispy connector -->
+      <path class="root-line root-line--3" d="
+        M-20,250
+        C100,240 200,260 340,245
+        S520,225 660,240
+        S820,265 960,248
+        S1140,230 1280,250
+        L1460,245
+      "/>
+
+      <!-- Root 4: Deep grounding root with branching feel -->
+      <path class="root-line root-line--4" d="
+        M700,280
+        C720,260 680,230 710,210
+        S760,185 740,160
+        S700,140 720,120
+      "/>
+
+      <!-- Growth nodes at branch points -->
+      <g class="root-nodes">
+        <circle class="root-node" cx="220" cy="155" r="0"/>
+        <circle class="root-node" cx="660" cy="145" r="0"/>
+        <circle class="root-node" cx="1120" cy="150" r="0"/>
+        <circle class="root-node" cx="460" cy="220" r="0"/>
+        <circle class="root-node" cx="940" cy="215" r="0"/>
+      </g>
+    </svg>
+
+    <!-- Scroll indicator -->
+    <div class="hero__scroll">
+      <span class="hero__scroll-text">Explore</span>
+      <div class="hero__scroll-line"></div>
+    </div>
+
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- BELOW-FOLD TEASER                            -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section class="teaser" id="philosophy">
+    <div class="teaser__inner" id="teaserInner">
+      <p class="teaser__label">Our Philosophy</p>
+      <h2 class="teaser__heading">
+        We see the <em>roots</em>,<br>
+        not just the branches.
+      </h2>
+      <p class="teaser__body">
+        Your identity isn't a checkbox — it's an ecosystem shaped by generations, geographies, and languages you dream in. Our therapists don't ask you to translate your experience. They've lived it too.
+      </p>
+      <a href="https://www.therapyisbrown.com/therapist/free-consultation" class="teaser__cta" target="_blank" rel="noopener">
+        Book Free Consultation
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </section>
+
+
+  <script>
+    // ═══════════════════════════════════════════
+    // Nav scroll effect
+    // ═══════════════════════════════════════════
+    const nav = document.getElementById('nav');
+    let lastScroll = 0;
+
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      if (scrollY > 60) {
+        nav.classList.add('is-scrolled');
+      } else {
+        nav.classList.remove('is-scrolled');
+      }
+      lastScroll = scrollY;
+    }, { passive: true });
+
+    // ═══════════════════════════════════════════
+    // Mobile toggle
+    // ═══════════════════════════════════════════
+    const mobileToggle = document.getElementById('mobileToggle');
+    if (mobileToggle) {
+      mobileToggle.addEventListener('click', () => {
+        // Future: toggle mobile menu
+      });
+    }
+
+    // ═══════════════════════════════════════════
+    // Root breathing animation after draw completes
+    // ═══════════════════════════════════════════
+    const rootLines = document.querySelectorAll('.root-line--1, .root-line--2');
+    rootLines.forEach(line => {
+      line.addEventListener('animationend', (e) => {
+        if (e.animationName === 'drawRoot') {
+          line.classList.add('drawn');
+        }
+      });
+    });
+
+    // ═══════════════════════════════════════════
+    // Teaser section reveal on scroll
+    // ═══════════════════════════════════════════
+    const teaserInner = document.getElementById('teaserInner');
+    if (teaserInner) {
+      const teaserObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            teaserObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+      teaserObserver.observe(teaserInner);
+    }
+
+    // ═══════════════════════════════════════════
+    // Video playback fallback
+    // ═══════════════════════════════════════════
+    const video = document.querySelector('.hero__video');
+    if (video) {
+      video.play().catch(() => {
+        // Autoplay blocked — video will show poster
+        console.log('Autoplay not permitted — showing poster image.');
+      });
+    }
+  </script>
+
+</body>
+</html>

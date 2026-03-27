@@ -1,0 +1,9 @@
+# Large media files
+*.mp4
+*.mov
+*.avi
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
